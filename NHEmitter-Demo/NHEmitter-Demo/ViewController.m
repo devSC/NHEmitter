@@ -38,6 +38,64 @@
     
 }
 
+/*
+ - (void)showPraiseHeartGif{
+ 
+ float orignalX = SCREEN_SIZE.width - POPHEART_RIGHT - POPHEART_W_H;
+ float orignalY = _praiseBtn.frame.origin.y;
+ 
+ UIImageView *iconImgView = [[UIImageView alloc] initWithFrame:CGRectMake(orignalX, orignalY - POPHEART_W_H * 6, POPHEART_W_H, POPHEART_W_H)];
+ iconImgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Video_Praise_%d",_praiseIndex]];
+ [self.view insertSubview:iconImgView belowSubview:_praiseBtn];
+ 
+ 
+ CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+ 
+ CGMutablePathRef aPath = CGPathCreateMutable();//初始化路径
+ CGPathMoveToPoint(aPath, nil, orignalX + POPHEART_W_H/2 , orignalY + POPHEART_W_H/4);//动画起始点
+ 
+ 
+ if (_praiseIndex % 3 == 0) {
+ 
+ CGPathAddCurveToPoint(aPath, nil,
+ orignalX - POPHEART_W_H, orignalY - POPHEART_W_H*2,
+ orignalX + POPHEART_W_H*2, orignalY - POPHEART_W_H*4,
+ orignalX + POPHEART_W_H/2, orignalY - POPHEART_W_H*5
+ );//控制点
+ }else if (_praiseIndex % 2  == 0){
+ 
+ CGPathAddCurveToPoint(aPath, nil,
+ orignalX - POPHEART_W_H*2, orignalY - POPHEART_W_H*2,
+ orignalX , orignalY - POPHEART_W_H*4,
+ orignalX - POPHEART_W_H/2 , orignalY - POPHEART_W_H*5
+ );//控制点
+ 
+ }else{
+ 
+ CGPathAddCurveToPoint(aPath, nil,
+ orignalX + POPHEART_W_H, orignalY - POPHEART_W_H*2,
+ orignalX + POPHEART_W_H/2, orignalY - POPHEART_W_H*4,
+ orignalX - POPHEART_W_H , orignalY - POPHEART_W_H*6
+ );//控制点
+ }
+ 
+ 
+ _praiseIndex ++ ;
+ if (_praiseIndex > 9) {
+ _praiseIndex = 0;
+ }
+ 
+ 
+ animation.path = aPath;
+ animation.duration = 1.5f;
+ animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];//设置为渐出
+ 
+ [iconImgView.layer addAnimation:animation forKey:@"position"];
+ 
+ [self performSelector:@selector(changeGifImageViewAlpha:) withObject:iconImgView afterDelay:1.0f];
+ 
+ }
+ */
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
